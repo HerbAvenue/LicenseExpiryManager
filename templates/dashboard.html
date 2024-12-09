@@ -1,4 +1,4 @@
-{% extends 'basehtml' %}
+{% extends 'base.html' %}
 
 {% block head %}
 {% endblock %}
@@ -7,5 +7,6 @@
 <div class="container">
     <h1>Welcome {{username}}, to your License Manager!</h1>
     <a href="" class="btn-logout"/>
+    <a href="{{url_for('logout')}}" class="btn btn-logout">Logout</a>
 </div>
 {% endblock %}

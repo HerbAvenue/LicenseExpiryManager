@@ -54,7 +54,7 @@ def login():
     user = Users.query.filter_by(Username=username).first()
     
     #Check login info in DB
-    if user and Users.check_password(password):
+    if user and user.check_password(password):
         
         ##LEARN WTF SESSION REALLY DOES ?!?!?!?
         session['username'] = username
@@ -81,8 +81,18 @@ def register():
         return redirect(url_for('dashboard'))
 
 #Dashboard
+@app.route('/dashboard')
+def dashboard():
+    if "username" in session:
+        return render_template('dashboard.html', username=session['username'])
+
+
 
 #Logout
+@app.route('/logout')
+def logout():
+    session.pop('username')
+    return redirect(url_for('index'))
 
 #Creates databases when running app.py directly
 if __name__ == "__main__":
