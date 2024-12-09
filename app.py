@@ -62,7 +62,7 @@ def login():
     
     #Else, show homepage
     else:
-        return render_template('index.html')
+        return render_template('index.html', error="Invalid Credentials")
 
 #Register
 @app.route('/register', methods=["POST"])
@@ -70,6 +70,10 @@ def register():
     username = request.form['username']
     password = request.form['password']
     user = Users.query.filter_by(Username=username).first()
+
+    if not username or not password:
+        return 'You need to enter a username and password'
+    
     if user:
         return render_template('index.html', error='User Already Exists')
     else:
