@@ -20,7 +20,6 @@ class Users(db.Model):
     __bind_key__ = 'db1'
     UserId = db.Column(db.Integer, primary_key = True)
     Username = db.Column(db.String(25), unique=True, nullable = False)
-    #Password = db.Column(db.String, nullable = False)
     Password_hash = db.Column(db.String(150), nullable=False)
 
     def set_password(self, password):
