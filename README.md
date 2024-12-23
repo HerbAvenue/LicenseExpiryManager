@@ -1,7 +1,7 @@
 # License Expiry Manager
 
 ## Overview
-License Expiry Manager is a user-friendly web application designed to help you stay on top of your licenses, credit cards, and memberships. The application allows you to track all your expiry dates in one place, ensuring you can see all your upcoming renewals in one place.
+License Expiry Manager is a user-friendly web application designed to help you stay on top of your licenses, credit cards, and memberships. The application allows you to track all your expiry dates in one place, ensuring you can see all your upcoming renewals.
 
 ## Features
 - **Centralized Tracking**: Manage all your licenses, credit cards, and memberships from a single dashboard.
