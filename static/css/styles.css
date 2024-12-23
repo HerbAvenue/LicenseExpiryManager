@@ -1,93 +1,44 @@
 body {
-  background-color: lightblue;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 95vh;
-  text-align: center;
-}
-
-header {
-  width: 100%;
-  background-color: bisque;
-  box-shadow: 0 4px 8px black;
-  padding: 20px 0px;
-}
-header h1 {
+  background: linear-gradient(135deg, #2c3e50, #000000);
+  color: white;
+  min-height: 100vh;
   margin: 0;
-  font-size: 2.5rem;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  width: 100%;
-}
-
-table {
-  width: 100%;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 .container {
-  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.form-container {
+  background-color: #495057;
+  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px black;
-  padding: 30px;
-  max-width: 500px;
-  width: 100%;
-  margin: 50px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 50px;
 }
-.container h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+
+.btn-logout {
+  margin-left: auto;
 }
-.container p {
-  font-size: 1;
+
+table {
+  background-color: #343a40;
+  color: #f8f9fa;
 }
-.container .input-field {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid black;
-  border-radius: 4px;
-  font-size: 1.5rem;
-  box-sizing: border-box;
+
+th, td {
+  padding: 8px;
+  text-align: center;
 }
-.container .input-field:focus {
-  border-color: red;
-  outline: none;
-}
-.container .btn {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: lightblue 0.3s ease;
-}
-.container .btn.btn-login {
-  background-color: orange;
-  color: white;
-}
-.container .btn.btn-login:hover {
-  background-color: purple;
-}
-.container .btn.btn-register {
-  background-color: orange;
-  color: white;
-}
-.container .btn.btn-register:hover {
-  background-color: blue;
-}
-.container .btn.btn-logout {
-  background-color: orange;
-  color: white;
-}
-.container .btn.btn-logout:hover {
-  background-color: purple;
+
+th {
+  background-color: #495057;
 }/*# sourceMappingURL=styles.css.map */

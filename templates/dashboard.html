@@ -3,82 +3,95 @@
 {% block head %}
 {% endblock %}
 
-{% block body %}
-<div class="container">
-    <h1>Welcome {{username}}, to your License Manager!</h1>
-    <a href="" class="btn-logout"/>
-    <a href="{{url_for('logout')}}" class="btn btn-logout">Logout</a>
-    
-    <br /><br />
-    
-    <!--ADD LICENSE FORM-->
-    <form action="/dashboard" method="POST" style="text-align: center;">
-        
-        <!-- First Dropdown -->
-        <label for="main-dropdown">Select License Type:</label>
-        <select id="main-dropdown" name="license-type">
-            <option value="" selected disabled>Select an option</option>
-            <option value="Credit Card">Credit Card</option>
-            <option value="License">License</option>
-            <option value='Memberships'>Memberships</option>
-        </select>
-    
-        <br /><br />
-    
-        <!-- Second Dropdown for Credit Card Types -->
-        <div id="credit-card-types" style="display: none;">
-            <label for="credit-card-dropdown">Select Credit Card Type:</label>
-            <select id="credit-card-dropdown" name="credit-card-type">
-                <option value="" selected disabled>Select Card Type</option>
-                <option value="Visa">Visa</option>
-                <option value="MasterCard">MasterCard</option>
-                <option value="American Express">American Express</option>
-            </select>
-        </div>
+{% block body %}  
+<!-- Welcome Header -->
+<div class="text-center mb-4">
+    <h1 class="display-4" style='color: white'>Welcome, {{username}}!</h1>
+    <a href="{{url_for('logout')}}" class="btn btn-danger btn-sm">Logout</a>
+</div>
 
-        <!-- Second Dropdown for License Types -->
-        <div id="license-types" style="display: none;">
-            <label for="license-dropdown">Select License Type:</label>
-            <select id="license-dropdown" name="license-type">
-                <option value="" selected disabled>Select Card Type</option>
-                <option value="Drivers License">Drivers License</option>
-                <option value="Boat License">Boat License</option>
-                <option value="Gun License">Gun License</option>
-            </select>
-        </div>
+<!-- Add License Form -->
+<div class="d-flex justify-content-center mb-4">
+    <div class="col-lg-8">
+        <div class="card shadow p-4">
+            <h3 class="card-title text-center mb-4">Add License</h3>
+            <form action="/dashboard" method="POST">
+                <!-- First Dropdown -->
+                <div class="mb-3">
+                    <label for="main-dropdown" class="form-label">Select License Type:</label>
+                    <select id="main-dropdown" name="license-type" class="form-select">
+                        <option value="" selected disabled>Select an option</option>
+                        <option value="Credit Card">Credit Card</option>
+                        <option value="License">License</option>
+                        <option value="Memberships">Memberships</option>
+                    </select>
+                </div>
 
-        <!-- Second Dropdown for Memberships -->
-        <div id="memberships-types" style="display: none;">
-            <label for="membership-dropdown">Select License Type:</label>
-            <input id="membership-input" name="membership-name" placeholder="Membership Name">
-        </div>
+                <!-- Second Dropdown for Credit Card Types -->
+                <div id="credit-card-types" class="mb-3" style="display: none;">
+                    <label for="credit-card-dropdown" class="form-label">Select Credit Card Type:</label>
+                    <select id="credit-card-dropdown" name="credit-card-type" class="form-select">
+                        <option value="" selected disabled>Select Card Type</option>
+                        <option value="Visa">Visa</option>
+                        <option value="MasterCard">MasterCard</option>
+                        <option value="American Express">American Express</option>
+                    </select>
+                </div>
 
-        <!-- Date Selector -->
-        <div id="date-picker" style="display: none;">
-            <br />
-            <label for="expiry-date">Select Expiry Date:</label>
-            <input type="date" id="expiry-date" name="expiry-date">
+                <!-- Second Dropdown for License Types -->
+                <div id="license-types" class="mb-3" style="display: none;">
+                    <label for="license-dropdown" class="form-label">Select License Type:</label>
+                    <select id="license-dropdown" name="license-type" class="form-select">
+                        <option value="" selected disabled>Select License Type</option>
+                        <option value="Drivers License">Drivers License</option>
+                        <option value="Boat License">Boat License</option>
+                        <option value="Gun License">Gun License</option>
+                    </select>
+                </div>
+
+                <!-- Input for Memberships -->
+                <div id="memberships-types" class="mb-3" style="display: none;">
+                    <label for="membership-input" class="form-label">Membership Name:</label>
+                    <input id="membership-input" name="membership-name" placeholder="Enter Membership Name" class="form-control">
+                </div>
+
+                <!-- Date Selector -->
+                <div id="date-picker" class="mb-3" style="display: none;">
+                    <label for="expiry-date" class="form-label">Select Expiry Date:</label>
+                    <input type="date" id="expiry-date" name="expiry-date" class="form-control">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-100">Add License</button>
+            </form>
         </div>
-    
-        <br />
-    
-        <input type="submit" value="Add License">
-    </form>
-    
-    <br />
-    
-    <table>
-        <tr>
-            <th>License</th>
-            <th>Expiry</th>
-        </tr>
-        {% for license in licenses %}
-        <tr>
-            <td>{{ license.name }}</td>
-            <td>{{ license.expiry }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    </div>
+</div>
+
+<!-- License Table -->
+<div class="d-flex justify-content-center">
+    <div class="col-lg-10">
+        <div class="card shadow p-4">
+            <h3 class="card-title text-center mb-4">Your Licenses</h3>
+            <table class="table table-striped">
+                <thead class="text-center">
+                    <tr>
+                        <th scope="col">License Type</th>
+                        <th scope="col">Expiry Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table Rows for each license -->
+                    {% for license in licenses %}
+                    <tr>
+                        <td>{{ license.name }}</td>
+                        <td>{{ license.expiry }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 <script>

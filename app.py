@@ -15,7 +15,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 #Create Databases
-#Users Database
+#Users Table
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
@@ -29,7 +29,7 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-#Licenses Database
+#Licenses Table
 class License(db.Model):
     __tablename__ = 'licenses'
     id = db.Column(db.Integer, primary_key=True)

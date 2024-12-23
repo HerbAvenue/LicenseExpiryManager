@@ -1,32 +1,40 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>License Manager Login</title>
+<title>License Expiry Tracker</title>
 {% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>Login</h1>
-    <br />
-    <form id="auth-form" action="{{url_for('login')}}" method="post"> <!--WHY IS URL_FOR IN JINJA2????-->
-        <input 
-            type="text" 
-            name="username" 
-            placeholder="Username" 
-            class="input-field"
-            required 
-        />
-        <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            class="input-field"
-            required
-        />
-        <input type="submit" value="Login" class="btn btn-login" onclick="setActionForm('login')"/>
-        <input type="button" value="Register" class="btn btn-register" onclick="setActionForm('register')"/>
+<div class="container d-flex justify-content-center align-items-center">
+    <form id="auth-form" action="{{ url_for('login') }}" method="post" class="w-100" style="max-width: 400px;">
+        <h1 style="color: #FFFFFF;">Login</h1>
+        <br />
+        <div class='form-group'>    
+            <input 
+                type="text" 
+                name="username" 
+                placeholder="Username" 
+                class="form-control"
+                required 
+            />
+        </div>
+        <br />
+        <div class='form-group'>
+            <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                class="form-control"
+                required
+            />
+        </div>
+        <br />
+        <button class="btn btn-primary btn-lg w-100" type="submit" value="Login" onclick="setActionForm('login')">Login</button>
+        <br /><br />
+        <button class="btn btn-secondary btn-lg w-100" type="button" value="Register" onclick="setActionForm('register')">Register</button>    
     </form>
 </div>
+
 
 <script>    
     function setActionForm(action) {

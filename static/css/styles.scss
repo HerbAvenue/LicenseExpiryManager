@@ -1,110 +1,50 @@
-//Variables
-$background-color: lightblue;
+// Variables for gradient colors
+$gradient-start: #2c3e50; // Dark blue
+$gradient-end: #000000;   // Black
 
-
+// Body styling
 body {
-    background-color: $background-color;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    display: flex; //Learn about flex
-    flex-direction: column;
-    align-items: center;
-    height: 95vh;
-    text-align: center;
+  background: linear-gradient(135deg, $gradient-start, $gradient-end);
+  color: white; // Text color to ensure readability
+  min-height: 100vh; // Cover the full height of the viewport
+  margin: 0; // Remove default margins
+  padding: 0;
+  font-family: 'Roboto', sans-serif; // Optional: Set a clean font
 }
 
-header{
-    width: 100%;
-    background-color: bisque;
-    box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 1.0);
-    padding: 20px 0px;
-
-    h1{
-        margin: 0;
-        font-size: 2.5rem; //Understand REM again
-    }
-}
-
-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    width: 100%;
-}
-
-table{
-    width: 100%;
-}
-
+// Optional: Center content with Bootstrap classes
 .container {
-    background-color: $background-color;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 1.0);
-    padding: 30px;
-    max-width: 500px;
-    width: 100%;
-    margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
 
-    h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-    }
+.form-container {
+  background-color: #495057;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 50px;
+}
 
-    p{
-        font-size: 1;
-    }
+.btn-logout {
+  margin-left: auto;
+}
 
-    .input-field{
-        width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid black;
-        border-radius: 4px;
-        font-size: 1.5rem;
-        box-sizing: border-box;
+table {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
 
-        &:focus {
-            border-color: red;
-            outline: none;
-        }
-    }
+th, td {
+  padding: 8px;
+  text-align: center;
+}
 
-    .btn{
-        width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        border: none;
-        border-radius: 4px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: $background-color 0.3s ease;
-
-        &.btn-login{
-           background-color: orange;
-           color: white;
-           
-           &:hover{
-            background-color: purple;
-           }
-        }
-
-        &.btn-register{
-            background-color: orange;
-            color: white;
-            
-            &:hover{
-             background-color: blue;
-            }
-         }
-
-         &.btn-logout{
-            background-color: orange;
-            color: white;
-            
-            &:hover{
-             background-color: purple;
-            }
-         }
-        
-    }
+th {
+  background-color: #495057;
 }
