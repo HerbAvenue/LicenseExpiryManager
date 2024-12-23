@@ -15,7 +15,7 @@ License Expiry Manager is a user-friendly web application designed to help you s
 - Simply going to [license.petti.dev](https://license.petti.dev/)
 
 ## Configuration
--Login, and add your cards/memberships!
+- Login, and add your cards/memberships!
 
 ## Roadmap
 - Custom notifications for upcoming renewals/expiry. (Email)
