@@ -51,7 +51,7 @@ def index():
 @app.route('/login', methods=["POST"])
 def login():
     #Collect login form info
-    username = request.form['username']
+    username = request.form['username'].upper()
     password = request.form['password']
     user = User.query.filter_by(username=username).first()
     
@@ -69,7 +69,7 @@ def login():
 #Register
 @app.route('/register', methods=["POST"])
 def register():
-    username = request.form['username']
+    username = request.form['username'].upper()
     password = request.form['password']
     user = User.query.filter_by(username=username).first()
 
