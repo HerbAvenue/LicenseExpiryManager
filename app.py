@@ -123,10 +123,24 @@ def dashboard():
         db.session.commit()
         flash("License added successfully!", "success")
 
+        # REFESH WONT RESUBMIT FORM
+        return redirect(url_for('dashboard'))
+
     # Fetch licenses for the logged-in user
     licenses = License.query.filter_by(user_id=user.id).order_by(License.expiry).all()
 
     return render_template('dashboard.html', username=session['username'], licenses=licenses)
+
+@app.route('/delete/<int:id>')
+def delete(id):
+    license_to_delete = License.query.get_or_404(id)
+
+    try:
+        db.session.delete(license_to_delete)
+        db.session.commit()
+        return redirect(url_for('dashboard'))
+    except:
+        return 'OH NOOOO'
 
 
 #Logout

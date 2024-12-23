@@ -41,7 +41,7 @@
                 <!-- Second Dropdown for License Types -->
                 <div id="license-types" class="mb-3" style="display: none;">
                     <label for="license-dropdown" class="form-label">Select License Type:</label>
-                    <select id="license-dropdown" name="license-type" class="form-select">
+                    <select id="license-dropdown" name="specific-license-type" class="form-select">
                         <option value="" selected disabled>Select License Type</option>
                         <option value="Drivers License">Drivers License</option>
                         <option value="Boat License">Boat License</option>
@@ -78,6 +78,7 @@
                     <tr>
                         <th scope="col">License Type</th>
                         <th scope="col">Expiry Date</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -86,6 +87,7 @@
                     <tr>
                         <td>{{ license.name }}</td>
                         <td>{{ license.expiry }}</td>
+                        <td><a href="/delete/{{license.id}}">Delete</td>
                     </tr>
                     {% endfor %}
                 </tbody>
